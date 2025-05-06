@@ -2,7 +2,6 @@ from google import genai
 from google.genai import types
 import genanki
 
-"just to thest"
 deck_id = 1420189368
 deck_name = "Español::sdahiu"
 
