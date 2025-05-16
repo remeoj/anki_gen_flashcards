@@ -55,4 +55,5 @@ def run_gemini():
         contents="Explain how AI works in a few words"
     )
     print(response.text)
-    print(response.usage_metadata.prompt_token_count)
+    if response.usage_metadata is not None:
+      print(response.usage_metadata.prompt_token_count)
