@@ -1,0 +1,24 @@
+Español::Preguntas | English::Questions
+Español::Pronombres | English::Pronouns
+Español::Ubicación | English::Location
+Español::Familia | English::Family
+Español::Cuerpo | English::Body
+Español::Lugares | English::Places
+Español::Conjugación | English::Conjugation
+Español::Colores | English::Colors
+Español::Hora del dia | English::Time of day
+Español::Animales | English::Animals
+Español::Ropa | English::Clothes
+Español::Preposición | English::Preposition
+Español::Olímpicos | English::Olympics
+Español::Días de la semana | English::Days of the week
+Español::Adjetivos | English::Adjectives
+Español::Cocina | English::Kitchen
+Español::Números | English::Numbers
+Español::Verbos | English::Verbs
+Español::Frase | English::Phrase
+Español::Transporte | English::Transportation
+Español::Varios | English::Various
+Español::Baño | English::Bathroom
+Español::Clima | English::Climate
+Español::Comida | English::Food
