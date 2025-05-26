@@ -1,6 +1,7 @@
 import genanki
 import generate_content as gc
-import random;
+import random
+import read_anki_file as raf
 
 deck_id = 1420189368
 # deck_name = "Español::sdahiu"
@@ -72,7 +73,7 @@ def create_anki_notes(flashcards:list):
   genanki.Package(deck_list).write_to_file('output.apkg')
   print("Created anki notes and stored them in output.apkg")
 
-def initial_setup():
+def ask_setup_questions():
   user_input = input("Do you want to create generated files (Y/N)? ")
   user_input = user_input.lower()
   if(user_input == 'y'):
@@ -88,4 +89,5 @@ def initial_setup():
     print("Cancelling program. Please restart the script if you'd like to create anki flashcards.")
 
 if __name__ == "__main__":
-  initial_setup()
+  raf.check_anki_for_duplicate_cards()
+  ask_setup_questions()

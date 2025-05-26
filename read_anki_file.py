@@ -3,7 +3,7 @@ import anki_export
 import json 
 
 CARD_LIST = []
-APKG = anki_export.ApkgReader('anki_spanish_deck.apkg')
+APKG = anki_export.ApkgReader('anki_deck.apkg')
 
 # Used to experiment with APKG API.
 def create_clean_card(flashcard):

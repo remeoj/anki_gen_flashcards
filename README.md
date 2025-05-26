@@ -12,6 +12,7 @@ A python script that generates anki flashcards leveraging Gemini API.
 2. Fill `new_words.txt` with words you would like to generate flashcards for. 
 3. Fill `categories.txt` with Anki deck and subdeck names. This will be used to organize flashcards into appropriate buckets.
 4. Create `api_keys.py` and store your Gemini API key there. You can also hard code a local variable in `main.py` if you aren't making your code public. 
+5. Export your current Anki deck as `anki_deck.apkg` into your copied repo directory. This is used to check for duplicate words between your current deck and the list of new words.
 
 ## Usage
 1. Run `python main.py` or `python3 main.py` depending on your system command.
