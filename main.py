@@ -81,6 +81,7 @@ def ask_setup_questions():
     gc.create_flashcard_file()
 
   user_input = input("Please check flashcard_data.txt to see if the generated content is good. If it is, would you like to continue. This will create anki flashcards in output.apkg (Y/N)? ")
+  user_input = user_input.lower()
 
   if(user_input == 'y'):
     flashcards = gc.create_flashcards_with_categories()

@@ -22,3 +22,4 @@ Español::Varios | English::Various
 Español::Baño | English::Bathroom
 Español::Clima | English::Climate
 Español::Comida | English::Food
+Español::Frases | English::Phrases

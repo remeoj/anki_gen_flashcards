@@ -4,7 +4,7 @@ from google.genai import types
 from google import genai
 import re
 import read_anki_file as raf
-
+import time
 
 client = genai.Client(api_key=api_keys.GEMINI_API)
 
@@ -152,6 +152,8 @@ def process_flashcards_and_leftovers():
       if word == flashcard_word:
         last_generated_word = word
         break
+  if not last_generated_word:
+    return [], []
   print("last word: ", last_generated_word)
   print(new_words)
   Last_word_index = new_words.index(last_generated_word)
@@ -169,8 +171,15 @@ def create_flashcard_file():
   print("Generating flashcard content and storing in flashcard_data.txt...")
   card_list = []
   new_words = raf.create_new_words_list()
+  request_sent = False
   while new_words:
     new_words_string = ", ".join(new_words)
+    if request_sent:
+      print("Giving model a break for 60 seconds...")
+      time.sleep(60)
+      print("Continuing...")
+    else:
+      request_sent = True
     generate_flashcard_content(new_words_string)
     flashcard_list, leftover_words = process_flashcards_and_leftovers()
     new_words = leftover_words
