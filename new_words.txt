@@ -1,47 +1,61 @@
-Conversar
-El alcalde
-Convenir
-Doler
-Encantar
-Faltar 
-Hacer falta
-Importar
-Interesar
-Molestar
-Parecer
-Quedar
-Sobrar
-Tocarle a alguien
-Limpiar
-Gusano
-Decir
-Medicamentos
-Llamar
-Identidad
-A menudo
-tecnologia
-baloncesto
-Cobrar
-Comprar
-Contar
-Contar con
-Contestar
-Dar
-Decir
-Enviar
-Prestar
-Traer
-Vender
-Tarjetas
-Un cuento
-Sueter
-Consultorio
-Maletas
-El dia del amor y la amistad
-El dia de accion de gracias
-Colega
-Jovencitos
-Sopa
-Secretos
-Frances
-Aleman
+Rey
+Era
+un monstruo 
+piedra
+Ilusión
+morir
+dudoso
+preciso
+una lástima
+urgente
+Desear
+La sala
+Tobillo
+Muslos
+Estar adolorido
+La cuenta
+La media
+Causar
+Tal vez
+Quizas
+Deseos
+Planes
+Pavo
+Dudoso
+Preciso
+Lástima
+Urgente
+Desear
+alegrarse de
+esperar 
+estar contento de
+estar triste de
+gustarle a uno
+tener miedo de
+Aconsejar
+Insistir en
+Permitir
+Prohibir
+Mandar
+Sugerir
+Dudar
+Grave
+Ejercicio
+Andar
+el circo
+En caso de que
+Luego que
+A menos que
+Para que
+Una vuelta
+Tal vez
+Quizás
+Acaso
+Aunque
+Enamorados
+Casarse
+Despacio
+Reírse
+Mostrar 
+Preciso
+Sorpresa

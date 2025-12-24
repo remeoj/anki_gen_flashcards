@@ -18,7 +18,7 @@ def create_generated_categories():
       for line in file:
         all_categories += line.strip() + "\n"
 
-  system_instruction = f'''You will be given words that are meant to be added to flashcards. A flashcard has a category which we are trying to decide. Here's the list of categories:\n{all_categories}\nYou must choose a category for each word. The final format should be a list of json objects in this format: {{word: word given, category: category picked}}. So for example, if the word is Bailar. The output would be {{'Bailar':'Español::Verbos'}}. Ensure that every word given keeps the same format and isn't grammatically changed.'''
+  system_instruction = f'''You will be given words that are meant to be added to flashcards. A flashcard has a category which we are trying to decide. Here's the list of categories:\n{all_categories}\nYou must choose a category for each word. The final format should be a list of json objects in this format: {{word: category picked}}. So for example, if the word is Bailar. The output would be {{"Bailar":"Español::Verbos"}}. Ensure that every word given keeps the same format and isn't grammatically changed.'''
 
   new_words = raf.create_new_words_list()
   new_words_string = ", ".join(new_words)
@@ -43,7 +43,7 @@ def generate_flashcard_content(words:str):
 
   {{"word": "Bano", "question" : "Bano", "answer" : "Bathroom", "spanish_example" : "El bano es grande.", "english_example" : The bathroom is big."}}
 
-  If a spanish infinitive verb is given, for example bailar, output objects for the infinitive verb and the conjugations. You can group el/ella/usted and ellos/ellas/ustedes. Do not create an object for the vosotros conjugation. Only give the objects asked for in the final output. For example:
+  If a spanish infinitive verb is given, for example bailar, output objects for the infinitive verb. Also output objects for the conjugations if the conjugation is irregular. You can group el/ella/usted and ellos/ellas/ustedes. Do not create an object for the vosotros conjugation. Only give the objects asked for in the final output. For example:
 
   {{"word": "Bailar", "question" : "Bailar", "answer" : "To dance", "spanish_example" : "Ella sabe bailar muy bien.", "english_example" : "She knows how to dance very well."}}
 
@@ -61,7 +61,7 @@ def generate_flashcard_content(words:str):
   - Vosotros should not be mentioned at all.
   - If an infinitive verb is the word we are creating flashcards for, list all conjugations in the described format.
   - Ensure that every word given keeps the same format and isn't grammatically changed. Don't add any slashes. 
-  - When creating the json objects, the closing brace follow by the comma shouldn't have a space in between them. For example, the string should be "{"},"} and not {"} ,"}". 
+  - When creating the json objects, the closing brace follow by the comma shouldn't have a space in between them. For example, the string should be "{"},"} and not {"} ,"}". Additionally, as json objects look, the first character of the text should be "[" and the final character should be "]" to encapsulate the objects we created in a json object array.
   - If you identify that the list of words is in a different language than spanish, for example japanese, modify this prompt to work for that language.
   '''
   generated_flashcards = run_gemini(system_instruction, words)
@@ -79,7 +79,7 @@ def generate_flashcard_content(words:str):
 
 def run_gemini(system_instruction:str, content:str):
    response = client.models.generate_content(
-        model="gemini-2.0-flash", 
+        model="gemini-2.5-flash", 
         config = types.GenerateContentConfig(system_instruction=system_instruction),
         contents=content
     )
@@ -198,11 +198,15 @@ def create_flashcard_file():
 
 def create_generated_categories_dict():
   parsed_data = load_json_from_file("generated_categories.txt")
+  print(f"Parsed Data:\n {parsed_data}")
 
   category = {}
-  for json_obj in parsed_data:
-     for key,value in json_obj.items():
-        category[key] = value
+  for item in parsed_data:
+    # item is a dict like {'Rey': 'Español::Varios'}
+    # .items() gives us [(key, value)]
+    for word_key, category_value in item.items():
+      category[word_key] = category_value
+    print(f"Category Dict:\n {category}")
   return category
 
 def create_flashcards_with_categories():
